@@ -7,9 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User,Long> {
 
-    @Query("select user.id from User user")
-    List<Long> getAllUserId();
-    List<User> findAllByFullName(String name);
+    @Query("select u.id from User u")
+    List<Long> getAllIds();
+
+    User findUserByFullName(String fullName);
+
 }

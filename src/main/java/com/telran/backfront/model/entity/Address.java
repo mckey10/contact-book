@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -37,7 +38,7 @@ public class Address {
     @NotBlank
     private String apartment;
 
-    @ManyToOne
-    private User user;
+    @OneToMany
+    private List <User> user;
 
 }

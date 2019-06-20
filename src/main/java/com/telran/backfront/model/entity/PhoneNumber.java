@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,9 +24,10 @@ public class PhoneNumber {
     private LocalDateTime createdDate;
 
     @NotBlank
+    @Column(unique = true)
     private String phoneNumber;
 
-    @ManyToOne
-    private User user;
+    @OneToMany
+    private List <User> user;
 
 }
